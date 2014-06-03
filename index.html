@@ -9,6 +9,9 @@
 	<script src="themes/jquery-1.10.2.min.js"></script>
 	<script src="themes/jquery.mobile-1.4.2.min.js"></script>
 	<script src="themes/wikiWorld.js"></script>
+	<style type="text/css">
+		
+	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			loadCountryList();
@@ -16,15 +19,14 @@
 
 		function loadCountryList(){
 			var length = wikiWorld.length;
+			var s = "";
 			for(var i=0;i<length;i++){
-				var li = $('li');
-				var a = $('a');
-				a.href = "#details";
-				$(a).html(""+wikiWorld[i].c);
-				$(li).append(a);
-				$('#countryList').append(li);
-				console.log(wikiWorld[i].c);
+				var t = wikiWorld[i].c;
+				s += "<li><a href='#'>"+"<img src='themes/images/flags_files/125px-Flag_of_"+t.replace(/\s+/g, '_')+".svg.png' class='ui-li-icon ui-corner-none'>"+wikiWorld[i].c+"</a></li>";
 			}
+			$('#countryList').html(s);
+			console.log(s);
+			$('#countryList').listview("refresh");
 		}
 	</script>
 </head>
@@ -33,8 +35,8 @@
 		<div data-role="header" data-position="inline">
 			<h1>World Wiki</h1>
 		</div>
-		<div data-role="content" data-theme="a">
-			<ul id="countryList" data-role="listview" data-autodividers="true"  data-inset="true">
+		<div data-role="content" data-theme="a" id="content">
+			<ul id="countryList" data-role="listview" data-autodividers="true" data-filter="true" data-filter-theme="b" data-filter-placeholder="Search Countries" data-inset="true">
 
 			</ul>
 		</div>
