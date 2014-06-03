@@ -1,0 +1,43 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Rushikesh: World Wiki</title>
+	<link rel="stylesheet" href="themes/worldwiki.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.min.css" />
+	<script src="themes/jquery-1.10.2.min.js"></script>
+	<script src="themes/jquery.mobile-1.4.2.min.js"></script>
+	<script src="themes/wikiWorld.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			loadCountryList();
+		});
+
+		function loadCountryList(){
+			var length = wikiWorld.length;
+			for(var i=0;i<length;i++){
+				var li = $('li');
+				var a = $('a');
+				a.href = "#details";
+				$(a).html(""+wikiWorld[i].c);
+				$(li).append(a);
+				$('#countryList').append(li);
+				console.log(wikiWorld[i].c);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" data-theme="a">
+		<div data-role="header" data-position="inline">
+			<h1>World Wiki</h1>
+		</div>
+		<div data-role="content" data-theme="a">
+			<ul id="countryList" data-role="listview" data-autodividers="true"  data-inset="true">
+
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
