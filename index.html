@@ -10,11 +10,116 @@
 	<script src="themes/jquery.mobile-1.4.2.min.js"></script>
 	<script src="themes/wikiWorld.js"></script>
 	<style type="text/css">
-		
+		.cstmPage{
+			margin: 0 auto;
+			text-align: center;
+		}
+		#content2{
+			margin: 0 auto;
+			text-align: center;
+			width:30%;
+		}
+		table {
+		width: 22em;
+		font-size: 88%;
+		}
+		.infobox.geography {
+		border-collapse: collapse;
+		line-height: 1.2em;
+		font-size: 90%;
+		}
+		.infobox {
+		border: 1px solid #aaa;
+		background-color: #f9f9f9;
+		color: black;
+		margin: 0.5em 0 0.5em 1em;
+		padding: 0.2em;
+		clear: right;
+		text-align: left;
+		font-size: 88%;
+		line-height: 1.5em;
+		}
+		@media screen
+		table {
+		font-size: 100%;
+		}
+
+		@media screen
+		.mw-content-ltr {
+		direction: ltr;
+		}
+
+		@media screen
+		#bodyContent, .mw-body-content {
+		position: relative;
+		line-height: 1.6;
+		font-size: 0.875em;
+		}
+		@media screen
+		#bodyContent, .mw-body-content {
+		position: relative;
+		line-height: 1.6;
+		font-size: 0.875em;
+		}
+
+		@media screen
+		div#content {
+		margin-left: 10em;
+		padding: 1em;
+		border: 1px solid #a7d7f9;
+		border-right-width: 0;
+		margin-top: -1px;
+		background-color: #fff;
+		color: #252525;
+		direction: ltr;
+		}
+
+		@media screen
+		html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		font-family: sans-serif;
+		}
+
+		@media screen
+		html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		font-family: sans-serif;
+		}
+		@media screen
+		html {
+		font-size: 1em;
+		}
+		#countryInfo a{
+			color:black;
+		}
+
+
+
+
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			
 			loadCountryList();
+
+			$('.country').on('click',function(){
+				$('#countryName').html(wikiWorld[$(this).attr('id')].c);
+				$.get(wikiWorld[$(this).attr('id')].l, function(data){
+						var html = $(data);
+						var tmp = $(html).find('.vcard').html();
+						tmp = tmp.replace(/\/\//g,'http://');
+						tmp = tmp.replace(/<a/g,'<span');
+						tmp = tmp.replace(/a>/g,'span>');
+						$('#countryInfo').html(tmp);
+						console.log(tmp);
+						$.mobile.navigate("#infoPage", { transition: "slide" });
+						//$.mobile.changePage( "#infoPage", { transition: "slideup" });
+					});
+				});
 		});
 
 		function loadCountryList(){
@@ -22,7 +127,7 @@
 			var s = "";
 			for(var i=0;i<length;i++){
 				var t = wikiWorld[i].c;
-				s += "<li><a href='#'>"+"<img src='themes/images/flags_files/125px-Flag_of_"+t.replace(/\s+/g, '_')+".svg.png' class='ui-li-icon ui-corner-none'>"+wikiWorld[i].c+"</a></li>";
+				s += "<li><a href='#' class='country' id='"+i+"'>"+"<img src='themes/images/flags_files/125px-Flag_of_"+t.replace(/\s+/g, '_')+".svg.png' class='ui-li-icon ui-corner-none'>"+wikiWorld[i].c+"</a></li>";
 			}
 			$('#countryList').html(s);
 			$('#countryList').listview("refresh");
@@ -30,7 +135,7 @@
 	</script>
 </head>
 <body>
-	<div data-role="page" data-theme="a">
+	<div data-role="page" data-theme="a" id="mainPage" class="cstmPage">
 		<div data-role="header" data-position="inline">
 			<h1>World Wiki</h1>
 		</div>
@@ -40,5 +145,15 @@
 			</ul>
 		</div>
 	</div>
+	<!-- Start of second page -->
+	<div data-role="page" id="infoPage" class="cstmPage">
+		<div data-role="header">
+			<a href="#" data-icon="arrow-l" data-rel="back" data-theme="c">back</a>
+			<h1 id="countryName"></h1>
+		</div>
+		<div data-role="content" id="content2">
+			<table id="countryInfo" class="infobox geography vcard"></table>
+		</div>
+	</div>	
 </body>
 </html>
