@@ -20,9 +20,9 @@
 		}
 
 		#content form{
-			position:fixed;
-			width:97.6%;
-			z-index: 2;
+/* 			position:fixed;
+width:97.6%;
+z-index: 2; */
 		}
 		table {
 			font-size: 70%;
@@ -59,6 +59,17 @@
 			text-shadow: none;
 		}
 
+		.ui-listview .ui-li-has-thumb>img:first-child, .ui-listview .ui-li-has-thumb>.ui-btn>img:first-child, .ui-listview .ui-li-has-thumb .ui-li-thumb{
+			top:8;
+			max-width:6em;
+			max-height:4em;
+		}
+		.country h2{
+			position:relative;
+			left:10px;
+			top:5px;
+		}
+		
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -96,7 +107,7 @@
 			var s = "";
 			for(var i=0;i<length;i++){
 				var t = wikiWorld[i].c;
-				s += "<li><a href='#' class='country' id='"+i+"'>"+"<img src='themes/images/flags_files/125px-Flag_of_"+t.replace(/\s+/g, '_')+".svg.png' class='ui-li-icon ui-corner-none'>"+wikiWorld[i].c+"</a></li>";
+				s += "<li><a href='#' class='country' id='"+i+"'>"+"<img src='themes/images/flags_files/125px-Flag_of_"+t.replace(/\s+/g, '_')+".svg.png' class='ui-corner-none'><h2>"+wikiWorld[i].c+"</h2></a></li>";
 			}
 			$('#countryList').html(s);
 			$('#countryList').listview("refresh");
