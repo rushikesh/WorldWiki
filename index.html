@@ -69,6 +69,14 @@
 						//$.mobile.changePage( "#infoPage", { transition: "slideup" });
 					});
 				});
+
+			$(document).ajaxStart(function() {
+			    $.mobile.loading('show');
+			});
+
+			$(document).ajaxStop(function() {
+			    $.mobile.loading('hide');
+			});
 		});
 
 		function loadCountryList(){
@@ -97,7 +105,7 @@
 	<!-- Start of second page -->
 	<div data-role="page" id="infoPage" class="cstmPage">
 		<div data-role="header">
-			<a href="#" data-icon="arrow-l" data-role="button" data-rel="back" data-theme="c" data-iconpos="notext">Back</a>
+			<a href="#" data-icon="arrow-l" data-role="button" data-rel="back" data-theme="a" data-iconpos="notext">Back</a>
 			<h1 id="countryName"></h1>
 		</div>
 		<div data-role="content" id="content2">
