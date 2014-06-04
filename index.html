@@ -17,7 +17,6 @@
 		#content2{
 			margin: 0 auto;
 			text-align: center;
-			width:30%;
 		}
 		table {
 		width: 22em;
@@ -30,11 +29,12 @@
 		}
 		.infobox {
 		border: 1px solid #aaa;
-		background-color: #f9f9f9;
+		/* background-color: #f9f9f9; */
+		background-color: #576470;
 		color: black;
-		margin: 0.5em 0 0.5em 1em;
-		padding: 0.2em;
-		clear: right;
+/* 		margin: 0.5em 0 0.5em 1em;
+padding: 0.2em;
+clear: right; */
 		text-align: left;
 		font-size: 88%;
 		line-height: 1.5em;
@@ -62,33 +62,33 @@
 		font-size: 0.875em;
 		}
 
-		@media screen
-		div#content {
-		margin-left: 10em;
-		padding: 1em;
-		border: 1px solid #a7d7f9;
-		border-right-width: 0;
-		margin-top: -1px;
-		background-color: #fff;
-		color: #252525;
-		direction: ltr;
-		}
+/* 		@media screen
+div#content {
+margin-left: 10em;
+padding: 1em;
+border: 1px solid #a7d7f9;
+border-right-width: 0;
+margin-top: -1px;
+background-color: #fff;
+color: #252525;
+direction: ltr;
+} */
 
-		@media screen
-		html, body {
-		height: 100%;
-		margin: 0;
-		padding: 0;
-		font-family: sans-serif;
-		}
+/* 		@media screen
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
+font-family: sans-serif;
+}
 
-		@media screen
-		html, body {
-		height: 100%;
-		margin: 0;
-		padding: 0;
-		font-family: sans-serif;
-		}
+@media screen
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
+font-family: sans-serif;
+} */
 		@media screen
 		html {
 		font-size: 1em;
@@ -96,8 +96,9 @@
 		#countryInfo a{
 			color:black;
 		}
-
-
+		#countryInfo{
+   		 margin: 0 auto; /* or margin: 0 auto 0 auto */
+		}
 
 
 	</style>
@@ -148,7 +149,7 @@
 	<!-- Start of second page -->
 	<div data-role="page" id="infoPage" class="cstmPage">
 		<div data-role="header">
-			<a href="#" data-icon="arrow-l" data-rel="back" data-theme="c">back</a>
+			<a href="#" data-icon="arrow-l" data-role="button" data-rel="back" data-theme="c" data-iconpos="notext">Back</a>
 			<h1 id="countryName"></h1>
 		</div>
 		<div data-role="content" id="content2">
