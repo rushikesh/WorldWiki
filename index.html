@@ -19,6 +19,11 @@
 			text-align: center;
 		}
 
+		#content form{
+			position:fixed;
+			width:97.6%;
+			z-index: 2;
+		}
 		table {
 			font-size: 70%;
 			width:100%;
@@ -100,7 +105,7 @@
 </head>
 <body>
 	<div data-role="page" data-theme="a" id="mainPage" class="cstmPage">
-		<div data-role="header" data-position="inline" data-position="fixed">
+		<div data-role="header" data-position="fixed">
 			<h1>World Wiki</h1>
 			<a href="#popupBasic" data-position-to="window" data-transition="fade" data-rel="popup" id="infoicon" data-icon="info" class="ui-btn-right" data-iconpos="notext">Info</a>
 		</div>
