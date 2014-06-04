@@ -72,7 +72,7 @@ z-index: 2; */
 		.mediaContainer{
 			display: none !important;
 		}
-		
+	
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -90,7 +90,6 @@ z-index: 2; */
 						tmp = tmp.replace(/<a/g,'<span');
 						tmp = tmp.replace(/a>/g,'span>');
 						$('#countryInfo').html(tmp);
-						console.log(tmp);
 						$.mobile.navigate("#infoPage", { transition: "slide" });
 						//$.mobile.changePage( "#infoPage", { transition: "slideup" });
 					});
