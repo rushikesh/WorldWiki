@@ -18,6 +18,7 @@
 			margin: 0 auto;
 			text-align: center;
 		}
+
 		table {
 			font-size: 70%;
 			width:100%;
@@ -47,12 +48,18 @@
 		.plainlist>ul{
 			list-style: none;
 		}
-
+		
+		#popupBasic{
+			color:white;
+			text-shadow: none;
+		}
 
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			
+			//$.mobile.fixedToolbars.show(true);
+
 			loadCountryList();
 
 			$('.country').on('click',function(){
@@ -93,24 +100,31 @@
 </head>
 <body>
 	<div data-role="page" data-theme="a" id="mainPage" class="cstmPage">
-		<div data-role="header" data-position="inline">
+		<div data-role="header" data-position="inline" data-position="fixed">
 			<h1>World Wiki</h1>
+			<a href="#popupBasic" data-position-to="window" data-transition="fade" data-rel="popup" id="infoicon" data-icon="info" class="ui-btn-right" data-iconpos="notext">Info</a>
 		</div>
 		<div data-role="content" data-theme="a" id="content">
 			<ul id="countryList" data-role="listview" data-autodividers="true" data-filter="true" data-filter-theme="b" data-filter-placeholder="Search Countries" data-inset="true">
 
 			</ul>
 		</div>
+		<div data-role="popup" id="popupBasic" data-overlay-theme="b" class="ui-content" >
+	    	<a href="#" data-rel="back" data-role="button" data-theme="c" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				<p>World Wiki gets you latest info of countries in the world from wikipedia.<p>
+				<p>Created By: <a href="http://www.rushis.com">Rushi</a><p>
+		</div>
 	</div>
 	<!-- Start of second page -->
 	<div data-role="page" id="infoPage" class="cstmPage">
-		<div data-role="header">
+		<div data-role="header" data-position="fixed">
 			<a href="#" data-icon="arrow-l" data-role="button" data-rel="back" data-theme="a" data-iconpos="notext">Back</a>
 			<h1 id="countryName"></h1>
 		</div>
 		<div data-role="content" id="content2">
 			<table id="countryInfo" class="infobox geography vcard"></table>
 		</div>
-	</div>	
+	</div>
+
 </body>
 </html>
