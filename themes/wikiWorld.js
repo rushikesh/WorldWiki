@@ -1,7 +1,7 @@
 var wikiWorld = [{"c":"Abkhazia","l":"http://en.wikipedia.org/wiki/Abkhazia"},
 {"c":"Afghanistan","l":"http://en.wikipedia.org/wiki/Afghanistan"},
 {"c":"Akrotiri and Dhekelia","l":"http://en.wikipedia.org/wiki/Akrotiri_and_Dhekelia"},
-{"c":"AÅland Islands","l":"http://en.wikipedia.org/wiki/%C3%85land_Islands"},
+{"c":"Aland Islands","l":"http://en.wikipedia.org/wiki/%C3%85land_Islands"},
 {"c":"Albania","l":"http://en.wikipedia.org/wiki/Albania"},
 {"c":"Alderney","l":"http://en.wikipedia.org/wiki/Alderney"},
 {"c":"Algeria","l":"http://en.wikipedia.org/wiki/Algeria"},
