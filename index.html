@@ -85,7 +85,7 @@ z-index: 2; */
 				$('#countryName').html(wikiWorld[$(this).attr('id')].c);
 				$.get(wikiWorld[$(this).attr('id')].l, function(data){
 						var html = $(data);
-						var tmp = $(html).find('.vcard').html();
+						var tmp = $(html).find('.geography').html();
 						tmp = tmp.replace(/\/\//g,'http://');
 						tmp = tmp.replace(/<a/g,'<span');
 						tmp = tmp.replace(/a>/g,'span>');
